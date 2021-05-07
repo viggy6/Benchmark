@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-public class People {
+public class People implements Comparable<People>{
 	@Id
 	private String _id;
 	private String padding;
@@ -42,6 +42,11 @@ public class People {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	@Override
+	public int compareTo(People o) {
+		// TODO Auto-generated method stub
+		return (int) (this.getPoints()-o.getPoints());
 	}
 
 }
